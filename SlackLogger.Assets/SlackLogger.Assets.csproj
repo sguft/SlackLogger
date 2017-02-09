@@ -4,18 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48B18D10-8C62-4D3D-B496-230E5CE48500}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{0602E6F1-3BCD-4D47-8FBD-9EAE442EDABD}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SlackLogger.ConsoleTest</RootNamespace>
-    <AssemblyName>SlackLogger.ConsoleTest</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>SlackLogger.Assets</RootNamespace>
+    <AssemblyName>SlackLogger.Assets</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,12 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,36 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="packages.config" />
-    <None Include="SlackLogger.secrets.config">
-      <SubType>Designer</SubType>
+    <None Include="HelloWorld.template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SlackLogger.Assets\SlackLogger.Assets.csproj">
-      <Project>{0602e6f1-3bcd-4d47-8fbd-9eae442edabd}</Project>
-      <Name>SlackLogger.Assets</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SlackLogger.Client\SlackLogger.Client.csproj">
-      <Project>{aa46380b-39bb-43ed-aaad-a7f6c7989a4f}</Project>
-      <Name>SlackLogger.Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SlackLogger.Log4Net\SlackLogger.Log4Net.csproj">
-      <Project>{9dbbe744-9324-477d-8043-9d64c7f9bb83}</Project>
-      <Name>SlackLogger.Log4Net</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SlackLogger.Logic\SlackLogger.Logic.csproj">
-      <Project>{c2e7b517-3dd9-49ed-ad80-ea0d1e95f1bd}</Project>
-      <Name>SlackLogger.Logic</Name>
-    </ProjectReference>
+    <None Include="Messages.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
