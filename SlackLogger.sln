@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackLogger.Logic", "SlackL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackLogger.ConsoleTest", "SlackLogger.ConsoleTest\SlackLogger.ConsoleTest.csproj", "{48B18D10-8C62-4D3D-B496-230E5CE48500}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackLogger.Log4Net", "SlackLogger.Log4Net\SlackLogger.Log4Net.csproj", "{9DBBE744-9324-477D-8043-9D64C7F9BB83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{48B18D10-8C62-4D3D-B496-230E5CE48500}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48B18D10-8C62-4D3D-B496-230E5CE48500}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48B18D10-8C62-4D3D-B496-230E5CE48500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DBBE744-9324-477D-8043-9D64C7F9BB83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DBBE744-9324-477D-8043-9D64C7F9BB83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DBBE744-9324-477D-8043-9D64C7F9BB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DBBE744-9324-477D-8043-9D64C7F9BB83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

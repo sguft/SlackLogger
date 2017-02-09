@@ -4,18 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48B18D10-8C62-4D3D-B496-230E5CE48500}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{9DBBE744-9324-477D-8043-9D64C7F9BB83}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SlackLogger.ConsoleTest</RootNamespace>
-    <AssemblyName>SlackLogger.ConsoleTest</AssemblyName>
+    <RootNamespace>SlackLogger.Log4Net</RootNamespace>
+    <AssemblyName>SlackLogger.Log4Net</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,7 +36,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,28 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SlackLogAppender.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
-    <None Include="SlackLogger.secrets.config">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SlackLogger.Client\SlackLogger.Client.csproj">
-      <Project>{aa46380b-39bb-43ed-aaad-a7f6c7989a4f}</Project>
-      <Name>SlackLogger.Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SlackLogger.Log4Net\SlackLogger.Log4Net.csproj">
-      <Project>{9dbbe744-9324-477d-8043-9d64c7f9bb83}</Project>
-      <Name>SlackLogger.Log4Net</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SlackLogger.Logic\SlackLogger.Logic.csproj">
       <Project>{c2e7b517-3dd9-49ed-ad80-ea0d1e95f1bd}</Project>
       <Name>SlackLogger.Logic</Name>
