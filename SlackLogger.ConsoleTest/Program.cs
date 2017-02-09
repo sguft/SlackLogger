@@ -18,9 +18,7 @@ namespace SlackLogger.ConsoleTest {
 		}
 
 		private static void StartProcessor() {
-			SlackConfig config = new SlackConfig();
-			config.WebhookUrl = ConfigurationManager.AppSettings["Slack.WebhookUrl"];
-			SlackProcessor.Start(config);
+			SlackProcessor.Start(SlackConfig.FromAppConfig());
 		}
 
 		private static void SendTestMessage() {

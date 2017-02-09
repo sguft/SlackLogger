@@ -11,7 +11,7 @@ namespace SlackLogger.Client {
 
 		public async Task Send(string message) {
 			using (HttpClient client = new HttpClient()) {
-				string payload = @"{""text"": ""This is a line of text""}";
+				string payload = $"{{\"text\": \"{message}\"}}";
 				StringContent content = new StringContent(payload);
 				await client.PostAsync(_webhookUrl, content);
 			}
