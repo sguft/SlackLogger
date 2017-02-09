@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LogMessage.cs" />
-    <Compile Include="ILogMessage.cs" />
-    <Compile Include="LogQueue.cs" />
+    <Compile Include="Logging\LogMessage.cs" />
+    <Compile Include="Logging\ILogMessage.cs" />
+    <Compile Include="Slack\SlackConfig.cs" />
+    <Compile Include="Slack\SlackProcesser.cs" />
+    <Compile Include="Logging\LogQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

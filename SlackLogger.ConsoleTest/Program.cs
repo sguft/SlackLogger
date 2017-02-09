@@ -3,6 +3,7 @@ using log4net;
 using log4net.Config;
 using System.Configuration;
 using SlackLogger.Client;
+using SlackLogger.Logic;
 
 namespace SlackLogger.ConsoleTest {
 	public class Program {
@@ -12,7 +13,14 @@ namespace SlackLogger.ConsoleTest {
 			XmlConfigurator.Configure();
 			LogTestOutput();
 			SendTestMessage();
+			StartProcessor();
 			Console.ReadLine();
+		}
+
+		private static void StartProcessor() {
+			SlackConfig config = new SlackConfig();
+			config.WebhookUrl = ConfigurationManager.AppSettings["Slack.WebhookUrl"];
+			SlackProcessor.Start(config);
 		}
 
 		private static void SendTestMessage() {

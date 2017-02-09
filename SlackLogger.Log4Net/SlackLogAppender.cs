@@ -14,7 +14,11 @@ namespace SlackLogger.Log4Net {
 
 		private ILogMessage GetMessage(LoggingEvent loggingEvent) {
 			LogMessage result = new LogMessage();
-			result.Message = loggingEvent.RenderedMessage;
+			result.Repository = loggingEvent.Repository?.Name ?? string.Empty;
+			result.LogLevel = loggingEvent.Level?.DisplayName ?? string.Empty;
+			result.Message = loggingEvent.RenderedMessage ?? string.Empty;
+			result.Exception = loggingEvent.ExceptionObject;
+			result.CreatedDateUtc = loggingEvent.TimeStampUtc;
 			return result;
 		}
 	}
