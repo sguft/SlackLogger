@@ -33,9 +33,13 @@ namespace SlackLogger.ConsoleTest {
 		private static void LogTestOutput() {
             Task.Run(() => {
                 while (true) {
-                    Log.Info("Running test");
-                    Thread.Sleep(5000);
-                }
+                    Log.Error("Bad Error Happened", new StackOverflowException());
+                    Console.WriteLine("Error");
+                    Thread.Sleep(7000);
+					Log.Warn("Not so bad thing happened");
+                    Console.WriteLine("Warning");
+                    Thread.Sleep(7000);
+				}
             });
 		}
 	}
