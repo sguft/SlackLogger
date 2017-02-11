@@ -7,12 +7,12 @@ namespace SlackLogger.Log4Net {
 	public class SlackLogAppender : AppenderSkeleton {
 
 		protected override void Append(LoggingEvent loggingEvent) {
-			ILogMessage message = GetMessage(loggingEvent);
+			LogMessage message = GetMessage(loggingEvent);
 			LogQueue.Enqueue(message);
 			Console.WriteLine("Message: " + message.Message);
 		}
 
-		private ILogMessage GetMessage(LoggingEvent loggingEvent) {
+		private LogMessage GetMessage(LoggingEvent loggingEvent) {
 			LogMessage result = new LogMessage();
 			result.Repository = loggingEvent.Repository?.Name ?? string.Empty;
 			result.LogLevel = loggingEvent.Level?.DisplayName ?? string.Empty;

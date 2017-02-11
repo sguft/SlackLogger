@@ -2,14 +2,14 @@
 
 namespace SlackLogger.Logic {
 	public static class LogQueue {
-		private static ConcurrentQueue<ILogMessage> _logQueue = new ConcurrentQueue<ILogMessage>();
+		private static ConcurrentQueue<object> _eventQueue = new ConcurrentQueue<object>();
 
-		public static void Enqueue(ILogMessage message) {
-			_logQueue.Enqueue(message);
+		public static void Enqueue(object value) {
+            _eventQueue.Enqueue(value);
 		}
 
-		public static bool TryDequeue(out ILogMessage message) {
-			return _logQueue.TryDequeue(out message);
+		public static bool TryDequeue(out object value) {
+			return _eventQueue.TryDequeue(out value);
 		}
 	}
 }

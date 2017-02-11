@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace SlackLogger.Logic {
-	public class LogMessage : ILogMessage {
+namespace SlackLogger.Log4Net {
+	public class LogMessage {
 		public string Repository { get; set; }
 		public string LogLevel { get; set; }
 		public string Message { get; set; }

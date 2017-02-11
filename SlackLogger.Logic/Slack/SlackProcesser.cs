@@ -32,7 +32,7 @@ namespace SlackLogger.Logic {
 		}
 
 		private static void ProcessQueue() {
-			ILogMessage message;
+			object message;
 			while (LogQueue.TryDequeue(out message)) {
 				SlackClient client = new SlackClient(_config.WebhookUrl);
 				SlackMessageProcessor messageProcessor = new SlackMessageProcessor(client);

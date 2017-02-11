@@ -65,12 +65,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\IncludePattern.cs" />
     <Compile Include="Configuration\SystemConfig.cs" />
     <Compile Include="Configuration\TemplateRepository.cs" />
     <Compile Include="Configuration\MessageInclude.cs" />
     <Compile Include="Configuration\MessageConfig.cs" />
-    <Compile Include="Logging\LogMessage.cs" />
-    <Compile Include="Logging\ILogMessage.cs" />
+    <Compile Include="Helpers\ReflectionHelper.cs" />
     <Compile Include="Messaging\TemplateSelector.cs" />
     <Compile Include="Messaging\TemplateCompiler.cs" />
     <Compile Include="Messaging\MessageTemplate.cs" />

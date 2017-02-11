@@ -16,17 +16,11 @@ namespace SlackLogger.Logic {
         }
 
         private static string ReplaceStatement(string statement, string format, object datasource) {
-            object result = TryBindToProperty(statement, datasource);
+            object result = ReflectionHelper.GetPropertyValue(statement, datasource);
             if (result != null) {
                 return EscapeValue(FormatValue(result, format));
             }
             return $"{{{{ Statement '{statement}' not found }}}}";
-        }
-
-        private static object TryBindToProperty(string statement, object datasource) {
-            Type type = datasource.GetType();
-            PropertyInfo property = type.GetProperty(statement, BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.Public);            
-            return property?.GetValue(datasource);
         }
 
         private static string FormatValue(object value, string format) {

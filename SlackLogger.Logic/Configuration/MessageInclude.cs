@@ -1,21 +1,22 @@
-﻿using System.Collections.Concurrent;
-using System.Text.RegularExpressions;
+﻿using System.Collections.Generic;
 using System.Xml.Linq;
 
 namespace SlackLogger.Logic {
-	public class MessageInclude {
+    public class MessageInclude {
+        private readonly List<IncludePattern> _includePatterns = new List<IncludePattern>();
         public string TemplateFile { get; set; }
-        public Regex LogLevelPattern { get; set; }
-        public Regex MessagePattern { get; set; }
 
         public MessageInclude(XElement include) {
             TemplateFile = include.Attribute("templateFile")?.Value ?? string.Empty;
-            LogLevelPattern = GetRegex(include.Element("logLevel")?.Value ?? string.Empty);
-            MessagePattern = GetRegex(include.Element("message")?.Value ?? string.Empty);
+            foreach (XElement pattern in include.Elements("pattern")) {
+                _includePatterns.Add(new IncludePattern(pattern));
+            }            
         }
 
-        private Regex GetRegex(string pattern) {
-            return new Regex(pattern, RegexOptions.Compiled | RegexOptions.Multiline | RegexOptions.IgnoreCase);
+        public IEnumerable<IncludePattern> Patterns {
+            get {
+                return _includePatterns;
+            }
         }
     }
 }
