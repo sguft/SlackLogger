@@ -24,6 +24,7 @@ namespace SlackLogger.Logic {
 					ProcessQueue();
 				}
 				catch (Exception ex) {
+                    Console.WriteLine(ex);
 					Debug.WriteLine(ex);
 				}
 				Thread.Sleep(100);

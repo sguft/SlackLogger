@@ -1,27 +1,12 @@
 ﻿{
   "attachments": [
     {
-      "fallback": "Required plain-text summary of the attachment.",
-      "color": "#FFFF00",
-      "pretext": "☂ Warning occured ",
-      "author_name": "PROD Environment",
-      "author_link": "http://flickr.com/bobby/",
-      "author_icon": "http://flickr.com/icons/bobby.jpg",
-      "title": "Warning warning!",
-      "title_link": "https://www.google.com",
-      "text": "This is a warning",
-      "fields": [
-        {
-          "title": "Priority",
-          "value": "Normal",
-          "short": false
-        }
-      ],
-      "image_url": "http://my-website.com/path/to/image.jpg",
-      "thumb_url": "http://example.com/path/to/thumb.png",
-      "footer": "Slack API",
-      "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
-      "ts": 123456789
+      "fallback": "PROD <%Message%>",
+      "color": "#ffff00",
+      "pretext": "",
+      "author_name": "PROD",
+      "text": "<%Message%>",
+      "ts": "<%TimestampLocal%>"
     }
   ]
 }

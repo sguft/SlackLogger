@@ -19,7 +19,15 @@ namespace SlackLogger.Log4Net {
 			result.Message = loggingEvent.RenderedMessage ?? string.Empty;
 			result.Exception = loggingEvent.ExceptionObject;
 			result.CreatedDateUtc = loggingEvent.TimeStampUtc;
-			return result;
+            result.CreatedDateLocal = loggingEvent.TimeStamp;
+            result.TimestampUtc = GetUnixTimestamp(result.CreatedDateUtc);
+            result.TimestampLocal = GetUnixTimestamp(result.CreatedDateLocal);
+            return result;
 		}
+
+        private long GetUnixTimestamp(DateTime value) {
+            DateTimeOffset offset = new DateTimeOffset(value);
+            return offset.ToUnixTimeSeconds();            
+        }
 	}
 }

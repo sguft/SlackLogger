@@ -7,5 +7,8 @@ namespace SlackLogger.Logic {
 		public string Message { get; set; }
 		public Exception Exception { get; set; }
 		public DateTime CreatedDateUtc { get; set; }
-	}
+        public DateTime CreatedDateLocal { get; set; }
+        public long TimestampUtc { get; set; }
+        public long TimestampLocal { get; set; }
+    }
 }

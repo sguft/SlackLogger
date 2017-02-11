@@ -33,7 +33,12 @@ namespace SlackLogger.ConsoleTest {
 		private static void LogTestOutput() {
             Task.Run(() => {
                 while (true) {
-                    Log.Error("Bad Error Happened", new StackOverflowException());
+                    try {
+                        throw new NullReferenceException();
+                    }
+                    catch (Exception ex) {
+                        Log.Error("Bad Error Happened", ex);
+                    }
                     Console.WriteLine("Error");
                     Thread.Sleep(7000);
 					Log.Warn("Not so bad thing happened");
