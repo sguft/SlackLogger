@@ -6,7 +6,8 @@
       "pretext": "",
       "author_name": "PROD",
       "text": "<%Message%>",
-      "ts": "<%TimestampLocal%>"
+      "ts": "<%TimestampLocal%>",
+      "mrkdwn_in": [ "text", "pretext" ]
     }
   ]
 }

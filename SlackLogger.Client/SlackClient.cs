@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -11,12 +12,20 @@ namespace SlackLogger.Client {
 		}        
 
         public async Task Send(string payload) {
-			using (HttpClient client = new HttpClient()) {
-                payload = EscapePayload(payload);
-                System.Console.WriteLine(payload);
-                StringContent content = new StringContent(payload);
-				await client.PostAsync(_webhookUrl, content);
-			}
+            try {
+                using (HttpClient client = new HttpClient()) {
+                    payload = EscapePayload(payload);
+                    System.Console.WriteLine(payload);
+                    StringContent content = new StringContent(payload);
+                    HttpResponseMessage response = await client.PostAsync(_webhookUrl, content);
+                    Console.WriteLine("Status Code: " + response.StatusCode);
+                    Console.WriteLine("Response: " + await response.Content.ReadAsStringAsync());
+                }
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex);
+                throw ex;
+            }
 		}
 
         private string EscapePayload(string value) {

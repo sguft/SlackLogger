@@ -31,7 +31,7 @@ namespace SlackLogger.Logic {
         }
 
         private static string EscapeValue(string value) {
-            return value.Replace("\"", "\\\"").Replace("\r\n", "\\n").Replace("\n", "\\n");
+            return value.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace("\r\n", "\\n").Replace("\n", "\\n");
         }
     }
 }
