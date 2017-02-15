@@ -1,12 +1,12 @@
 ﻿{
   "attachments": [
     {
-      "fallback": "PROD <%Message%>",
+      "fallback": "PROD <% Message %>",
       "color": "#ffff00",
       "pretext": "",
       "author_name": "PROD",
-      "text": "<%Message%>",
-      "ts": "<%TimestampLocal%>",
+      "text": "<% Message %>",
+      "ts": "<% TimestampLocal %>",
       "mrkdwn_in": [ "text", "pretext" ]
     }
   ]
