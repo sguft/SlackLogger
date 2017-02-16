@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 
 namespace SlackLogger.Core {
-    public static class TemplateRepository {
+    internal static class TemplateRepository {
         private static readonly string _searchPattern = "*.template.json";
         private static readonly Dictionary<string, MessageTemplate> _templates = new Dictionary<string, MessageTemplate>();
         private static SlackConfig _slackConfig;

@@ -8,8 +8,8 @@ namespace SlackLogger.Log4Net {
 
 		protected override void Append(LoggingEvent loggingEvent) {
 			LogMessage message = GetMessage(loggingEvent);
-			LogQueue.Enqueue(message);
-			Console.WriteLine($"Appended to Queue: {message.LogLevel.ToUpper()}: {message.Message}");
+            SlackProcessor.Enqueue(message);
+            Console.WriteLine($"Appended to Queue: {message.LogLevel.ToUpper()}: {message.Message}");
 		}
 
 		private LogMessage GetMessage(LoggingEvent loggingEvent) {

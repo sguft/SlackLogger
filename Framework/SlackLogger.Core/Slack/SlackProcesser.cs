@@ -20,6 +20,10 @@ namespace SlackLogger.Core {
             TemplateRepository.Init(config);
         }
 
+        public static void Enqueue(object value) {
+            MessageQueue.Enqueue(value);
+        }
+
         private static void ValidateConfiguration(SlackConfig config) {
             if (string.IsNullOrWhiteSpace(config.WebhookUrl)) {
                 throw new ArgumentException("Invalid Configuration: Please provide a valid url for WebhookUrl");
@@ -50,7 +54,7 @@ namespace SlackLogger.Core {
 
 		private static void ProcessQueue() {
 			object message;
-			while (LogQueue.TryDequeue(out message)) {
+			while (MessageQueue.TryDequeue(out message)) {
 				SlackClient client = new SlackClient(_config.WebhookUrl);
 				SlackMessageProcessor messageProcessor = new SlackMessageProcessor(client);
 				messageProcessor.ProcessMessage(message);

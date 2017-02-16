@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
 
 namespace SlackLogger.Core {
-	public static class LogQueue {
+	internal static class MessageQueue {
 		private static ConcurrentQueue<object> _eventQueue = new ConcurrentQueue<object>();
 
 		public static void Enqueue(object value) {

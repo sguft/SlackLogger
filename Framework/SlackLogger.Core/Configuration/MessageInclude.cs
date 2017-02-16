@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 
 namespace SlackLogger.Core {
-    public class MessageInclude {
+    internal class MessageInclude {
         private readonly List<IncludePattern> _includePatterns = new List<IncludePattern>();
         public string TemplateFile { get; set; }
 

@@ -4,7 +4,7 @@ using System.IO;
 using System.Xml.Linq;
 
 namespace SlackLogger.Core {
-    public static class MessageConfig {
+    internal static class MessageConfig {
         private static readonly string _configName = "Messages.config";
         private static readonly List<MessageInclude> _includes = new List<MessageInclude>();
         private static readonly object _syncObject = new object();

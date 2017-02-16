@@ -2,7 +2,7 @@
 using System.Web;
 
 namespace SlackLogger.Core {
-    public static class TemplateCompiler {
+    internal static class TemplateCompiler {
         private static readonly Regex _statementRegex = new Regex(@"<%\s*(?<statement>.+?)(:(?<format>.+?))?\s*%>", RegexOptions.Compiled);
 
         public static string Compile(MessageTemplate template, object datasource) {

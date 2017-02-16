@@ -1,5 +1,5 @@
 ﻿namespace SlackLogger.Core {
-	public class SlackMessageProcessor {
+    internal class SlackMessageProcessor {
 		private SlackClient _client;
 
 		public SlackMessageProcessor(SlackClient client) {

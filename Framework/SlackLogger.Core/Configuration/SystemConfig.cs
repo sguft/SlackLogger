@@ -2,7 +2,7 @@
 using System.Reflection;
 
 namespace SlackLogger.Core {
-    public static class SystemConfig {
+    internal static class SystemConfig {
 
         public static string AssemblyDirectory {
             get {

@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 
 namespace SlackLogger.Core {
-    public class IncludePattern {
+    internal class IncludePattern {
         public string PropertyName { get; set; }
         public string Pattern { get; set; }
         public Regex Expression { get; set; }
