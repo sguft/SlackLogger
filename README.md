@@ -1,10 +1,9 @@
 SlackLogger
 ======
-SlackLogger is framework that can be integrated in your application to forward events to Slack.
+SlackLogger is a framework that can be integrated in your application to forward events to Slack.
 
 Benefits of using SlackLogger:
-- Supports large amounts of data events
-- Asynchronous queue model, minimal impact on your application and its performance
+- Asynchronous queueing model, minimal impact on your application and its performance
 - Flexible regular expression based filtering of event data
 - Flexible templates to format your Slack messages the way you want
 - Debouncing logic ensuring your events won't flood your Slack channel (coming soon)
@@ -16,15 +15,25 @@ Nuget packages coming soon.
 OR
 
 Reference source projects:
-- SlackLogger.Client
-- SlackLogger.Assets
-- SlackLogger.Logic
+- SlackLogger.Core
 
-Ensure SlackLogger.Assets is referenced in main application project as the current logic relies on the templates being copyed to the application bin output directory (this will be made more flexible soon).
+To enable SlackLogger a configuration is needed with some basic info and the background worker "SlackProcessor" needs to be started:
+```cs
+SlackConfig config = new SlackConfig();
+config.WebhookUrl = "https://hooks.slack.com/services/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"; // your Slack Webhook Url
+config.TemplateRootFolder = "./Configuration"; // Directory relative to output directory where templates and messages.config is stored
+SlackProcessor.Start(config); // Start the event processing loop
+```
+
+Now events are ready to be added:
+
+```cs
+SlackProcessor.Enqueue(new { Foo = "Bar" });
+```
 
 ### Configure message triggering
 
-In SlackLogger.Assets project edit Messages.config.
+Create an XML file in your TemplateRootFolder called: Messages.config.
 
 All incoming events will be evaluated against the rules specified in this configuration. If a rule matches a message will be sent to Slack using the associated Template.
 
@@ -73,6 +82,8 @@ Simple formatting can be done by writing: &lt;% CreatedDate:yyyy-MM-dd %&gt;.
 Any formatting string can be used as supported by a normal String.Format in .NET and will likewise vary by data type.
 
 Wrapping your domain objects in a view model, before adding them to SlackLogger might be worth considering if you require more advanced  formatting logic.
+
+Please Note: Template filename must end with: .template.json to be recognized.
 
 ### State of project
 
