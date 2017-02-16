@@ -68,10 +68,11 @@ Here is what a basic exception template could look like for a typical log event:
 ```
 
 Currently only properties are supported. 
-Wrapping your domain objects in a view model, before adding them to SlackLogger might be worth considering if you require additional formatting logic.
 
 Simple formatting can be done by writing: &lt;% CreatedDate:yyyy-MM-dd %&gt;.
 Any formatting string can be used as supported by a normal String.Format in .NET and will likewise vary by data type.
+
+Wrapping your domain objects in a view model, before adding them to SlackLogger might be worth considering if you require more advanced  formatting logic.
 
 ### State of project
 
