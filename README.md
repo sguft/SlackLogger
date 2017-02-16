@@ -25,8 +25,8 @@ config.TemplateRootFolder = "./Configuration";
 SlackProcessor.Start(config);
 ```
 *Configuration Properties:*
-WebhookUrl: Your Slack Webhook Url
-TemplateRootFolder: Directory path where templates and messages.config is stored. Note that "." can be used to reference application directory and relative paths can be appended.
+- WebhookUrl: Your Slack Webhook Url
+- TemplateRootFolder: Directory path where templates and messages.config is stored. Note that "." can be used to reference application directory and relative paths can be appended.
 
 Now events are ready to be added:
 
