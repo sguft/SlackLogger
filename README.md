@@ -14,16 +14,19 @@ Nuget packages coming soon.
 
 OR
 
-Reference source projects:
+Reference source project:
 - SlackLogger.Core
 
 To enable SlackLogger a configuration is needed with some basic info and the background worker "SlackProcessor" needs to be started:
 ```cs
 SlackConfig config = new SlackConfig();
-config.WebhookUrl = "https://hooks.slack.com/services/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"; // your Slack Webhook Url
-config.TemplateRootFolder = "./Configuration"; // Directory relative to output directory where templates and messages.config is stored
-SlackProcessor.Start(config); // Start the event processing loop
+config.WebhookUrl = "https://hooks.slack.com/services/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";
+config.TemplateRootFolder = "./Configuration";
+SlackProcessor.Start(config);
 ```
+*Configuration Properties:*
+WebhookUrl: Your Slack Webhook Url
+TemplateRootFolder: Directory path where templates and messages.config is stored. Note that "." can be used to reference application directory and relative paths can be appended.
 
 Now events are ready to be added:
 
